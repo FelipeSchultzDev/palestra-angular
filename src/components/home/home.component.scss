@@ -1,0 +1,30 @@
+.menu{
+    width: 100%;
+    height: 40px;
+    background-color: #5b51bd;
+}
+
+.listOptions ul{
+    width: 100%;
+}
+
+.listOptions li{
+    margin: 6%;
+    line-height: 40px;
+    font-family: 'Open Sans';
+    display: inline;
+    font-size: 28px;
+}
+
+.listOptions a{
+    color: #fafafa;
+    text-decoration: none;
+}
+
+.listOptions a:hover{
+    color: #acacac !important;
+}
+
+.listOptions a:active{
+    color: #8a8a8a !important;
+}
