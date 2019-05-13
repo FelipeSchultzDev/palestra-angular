@@ -1,7 +1,14 @@
 <div class="container">
-  <input type="text" placeholder="Nome" [(ngModel)]="name"><br>
-  <input type="text" placeholder="Sobrenome" [(ngModel)]="sobrenome"><br>
-  <input type="text" placeholder="Cpf" [(ngModel)]="cpf" cpfMask><br>
+  <input type="text" placeholder="Nome" [(ngModel)]="pessoa.nome"><br>
+  <input type="text" placeholder="Sobrenome" [(ngModel)]="pessoa.sobrenome"><br>
+  <input type="text" placeholder="Cpf" [(ngModel)]="pessoa.cpf" cpfMask><br>
 
   <button (click)="create()">Cadastrar</button>
+</div>
+
+<div class="msg" *ngIf="success != null">
+  <h1>{{success.toString() | uppercase}}</h1>
+  <div *ngFor="let mensagem of msg">
+    <h3>{{mensagem}}</h3>
+  </div>
 </div>

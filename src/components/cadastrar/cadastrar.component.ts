@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastrar.component.scss']
 })
 export class CadastrarComponent implements OnInit {
-  public name: string;
-  public sobrenome: string;
-  public cpf: string;
+  public pessoa = {
+    nome: '',
+    sobrenome: '',
+    cpf: ''
+  }
+
+  public msg: any[] = [];
+  public success: string;
 
   constructor(
     private api: ApiService
@@ -19,9 +24,16 @@ export class CadastrarComponent implements OnInit {
   }
 
   create() {
-    this.api.get()
+    this.pessoa.cpf = this.pessoa.cpf.replace('.', '').replace('.', '').replace('-', '');
+    this.api.post(this.pessoa)
     .then(res => {
-      console.log(res);
+      this.success = res.success;
+
+      if (res.success) {
+        this.msg.push(res.msg);
+      } else {
+        this.msg = res.msg;
+      }
     });
   }
 

@@ -11,60 +11,45 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
-  public createHeader(header?: HttpHeaders): HttpHeaders {
-    if (!header) {
-      header = new HttpHeaders();
-    }
-    header = header.append('Content-Type', 'application/json');
-    header = header.append('Accept', 'application/json');
-
-    return header;
-  }
-
   get(): Promise<any> {
-    let header = this.createHeader();
     return new Promise(result => {
-      this.http.get(`${this.url}consultar`, { headers: header })
+      this.http.get(`${this.url}consultar`)
         .subscribe(res => {
           result(res);
         });
     });
   }
 
-  getById() {
-    let header = this.createHeader();
+  getById(body): Promise<any> {
     return new Promise(result => {
-      this.http.get(`${this.url}consultar`, { headers: header })
+      this.http.get(`${this.url}consultarid`, body)
         .subscribe(res => {
           result(res);
         });
     });
   }
 
-  post() {
-    let header = this.createHeader();
+  post(body): Promise<any> {
     return new Promise(result => {
-      this.http.get(`${this.url}consultar`, { headers: header })
+      this.http.post(`${this.url}inserir`, body)
         .subscribe(res => {
           result(res);
         });
     });
   }
 
-  put() {
-    let header = this.createHeader();
+  put(body): Promise<any> {
     return new Promise(result => {
-      this.http.get(`${this.url}consultar`, { headers: header })
+      this.http.put(`${this.url}editar`, body)
         .subscribe(res => {
           result(res);
         });
     });
   }
 
-  delete() {
-    let header = this.createHeader();
+  delete(body): Promise<any> {
     return new Promise(result => {
-      this.http.get(`${this.url}consultar`, { headers: header })
+      this.http.delete(`${this.url}deletar`, body)
         .subscribe(res => {
           result(res);
         });

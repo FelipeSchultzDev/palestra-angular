@@ -40,14 +40,14 @@ export class CpfDirective implements ControlValueAccessor {
     cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
 
     $event.target.value = cpf;
+    this.onChange($event.target.value);
   }
 
   @HostListener('blur', ['$event']) onBlur($event: any) {
-    let cpf: string = $event.target.value;
+    const cpf: string = $event.target.value;
 
-    if (cpf.length > 14) { cpf = cpf.substring(0, 14); }
+    if (cpf.length > 14) { $event.target.value = cpf.substring(0, 14); }
 
-    this.onChange('');
-    $event.target.value = '';
+    this.onChange($event.target.value);
   }
 }

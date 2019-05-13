@@ -39,3 +39,23 @@
 .container button:active{
     background-color: #453d8d;
 }
+
+.msg{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #d1d1d1;
+    padding: 15px;
+    font-family: 'Open Sans';
+}
+
+.msg h1{
+    width: min-content;
+    margin: auto;
+    color: #717171;
+}
+
+.msg h3{
+    color: #444444;
+}
